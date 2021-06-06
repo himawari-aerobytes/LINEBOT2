@@ -76,21 +76,11 @@ const handleEvent = async (event) => {
     return Promise.resolve(null);
   };
 
-  return client.pushMessage(process.env.UID, makeEventMessage(APIMock))
+  return client.pushMessage(process.env.UID, { type: "text", text: "aa" });
 
 
 };
 
-const APIMock = {
-  "events": {
-    "Name": "飲み会１",
-    "Location": "山田大学",
-    "Start_Date": "2021/3/2",
-    "End_Date": "2021/3/2",
-    "Description": "みんなで飲みます"
-  }
-
-};
 
 
 //herokuの環境変数
