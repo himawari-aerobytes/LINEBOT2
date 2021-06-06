@@ -11,14 +11,12 @@ import {
   // types
   TemplateMessage,
   WebhookEvent,
+  Message,
+  TextMessage,
+  FlexMessage,
 } from "@line/bot-sdk";
 require('dotenv').config();
-
-const config = {
-  //.env環境で入力
-  channelSecret:process.env.CHANNEL_SEACRET,
-  channelAccessToken:process.env.CHANNEL_ACCESS_TOKEN
-};
+import APIMock from "./APIMock/Server.json";
 
 type API_RECEIVE = {
   events: {
@@ -27,24 +25,31 @@ type API_RECEIVE = {
     Start_Date: string;
     End_Date: string|null;
     Description: string|null;
-  }[]
+  }
 }
 
+const config = {
+  //.env環境で入力
+  channelSecret:process.env.CHANNEL_SEACRET,
+  channelAccessToken:process.env.CHANNEL_ACCESS_TOKEN
+};
 //server
 const app = express();
+const client = new Client(config);
+let a: Message;
+let b : FlexMessage
 
 
-const makeMessage = (req: API_RECEIVE) => {
-  let message = []
-  req.events.map((event) => {
-    message.push(
-      `以下のイベントが登録されました
+const makeEventMessage = (req: API_RECEIVE) => {
+  const event = req.events
+
+  return convertToTextMessage(`以下のイベントが登録されました
       【${event.Name}】
       【場所】${event.Location}
       【日程】${event.Start_Date} ~ ${event.End_Date}
       【詳細】${event.Description}
-      `)
-  })
+      `);
+
 }
 
 
@@ -54,12 +59,20 @@ app.post("/webhook", middleware(config),(req, res) => {
   
 });
 
-const client = new Client(config);
+const convertToTextMessage = (text: string):Message => {
+  return {
+      type: "text",
+      text: text
+  }
+  
+}
 
-const handleEvent = (event) => {
+const handleEvent = async (event) => {
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   };
+
+  client.pushMessage(process.env.UID,makeEventMessage(APIMock))
 
   return client.replyMessage(event.replyToken, {
     type: "text",
