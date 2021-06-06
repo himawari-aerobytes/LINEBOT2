@@ -57,11 +57,12 @@ const APIMock = {
 const makeEventMessage = (req: API_RECEIVE) => {
   const event = req.events
 
-  return  (`以下のイベントが登録されました
-      【${event.Name}】
-      【場所】${event.Location}
-      【日程】${event.Start_Date} ~ ${event.End_Date}
-      【詳細】${event.Description}`);
+  return (
+    `以下のイベントが登録されました
+    【${event.Name}】
+    【場所】${event.Location}
+    【日程】${event.Start_Date} ~ ${event.End_Date}
+    【詳細】${event.Description}`);
       
 
 }
