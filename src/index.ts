@@ -16,7 +16,11 @@ import {
   FlexMessage,
 } from "@line/bot-sdk";
 require('dotenv').config();
-import APIMock from "./APIMock/Server.json";
+import fs from "fs";
+
+const APIMock = JSON.parse(fs.readFileSync("./APIMock/Server.json", "utf-8"));
+
+
 
 type API_RECEIVE = {
   events: {
