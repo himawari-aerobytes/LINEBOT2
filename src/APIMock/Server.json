@@ -1,0 +1,10 @@
+{
+    "events": {
+      "Name": "飲み会１",
+      "Location":"山田大学" ,
+      "Start_Date": "2021/3/2",
+      "End_Date":"2021/3/2",
+      "Description": "みんなで飲みます"
+  }
+
+}
