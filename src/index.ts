@@ -40,8 +40,18 @@ const config = {
 //server
 const app = express();
 const client = new Client(config);
-let a: Message;
-let b : FlexMessage
+
+const APIMock = {
+  "events": {
+    "Name": "飲み会１",
+    "Location": "山田大学",
+    "Start_Date": "2021/3/2",
+    "End_Date": "2021/3/2",
+    "Description": "みんなで飲みます"
+  }
+
+};
+
 
 
 const makeEventMessage = (req: API_RECEIVE) => {
@@ -72,16 +82,7 @@ const handleEvent = async (event) => {
 
 };
 
-const APIMock = {
-  "events": {
-    "Name": "飲み会１",
-    "Location": "山田大学",
-    "Start_Date": "2021/3/2",
-    "End_Date": "2021/3/2",
-    "Description": "みんなで飲みます"
-  }
 
-};
 
 
 //herokuの環境変数
