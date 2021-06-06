@@ -33,6 +33,7 @@ ts-nodeを使って、distファイルにjavascriptへコンパイルしたも�
 
 # Heroku
 process.env.PORTはHerokuの環境変数です。指定しない限りポートは3000になります
+そのまま、Herokuにアップロードすることもできます。
 
 
 
