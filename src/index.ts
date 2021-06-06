@@ -4,20 +4,8 @@ import {
   Client,
   middleware,
 
-  // exceptions
-  JSONParseError,
-  SignatureValidationFailed,
-
-  // types
-  TemplateMessage,
-  WebhookEvent,
-  Message,
-  TextMessage,
-  FlexMessage,
 } from "@line/bot-sdk";
 require('dotenv').config();
-import fs from "fs";
-const APIMock = JSON.parse(fs.readFileSync("./APIMock/Server.json", "utf-8"));
 
 type API_RECEIVE = {
   events: {
@@ -38,6 +26,17 @@ const config = {
 //server
 const app = express();
 const client = new Client(config);
+
+const APIMock = {
+  "events": {
+    "Name": "飲み会１",
+    "Location": "山田大学",
+    "Start_Date": "2021/3/2",
+    "End_Date": "2021/3/2",
+    "Description": "みんなで飲みます"
+  }
+
+};
 
 const makeEventMessage = (req: API_RECEIVE) => {
   const event = req.events
