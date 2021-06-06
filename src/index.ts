@@ -78,7 +78,7 @@ const handleEvent = async (event) => {
     return Promise.resolve(null);
   };
 
-  return client.pushMessage(process.env.UID, {type:"text",text:makeEventMessage(APIMock)})
+  return client.pushMessage(process.env.UID, { type: "text", text: "aaab" });
 
 };
 
