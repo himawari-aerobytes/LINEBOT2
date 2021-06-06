@@ -72,7 +72,6 @@ const handleEvent = async (event) => {
 
   return client.pushMessage(process.env.UID, makeEventMessage(APIMock))
 
-
 };
 
 const APIMock = {
