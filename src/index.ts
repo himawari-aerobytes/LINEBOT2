@@ -44,17 +44,15 @@ let a: Message;
 let b : FlexMessage
 
 
-const makeEventMessage = (req: API_RECEIVE):Message => {
+const makeEventMessage = (req: API_RECEIVE) => {
   const event = req.events
 
-  return {
-    type: "text",
-    text: `以下のイベントが登録されました
+  return  (`以下のイベントが登録されました
       【${event.Name}】
       【場所】${event.Location}
       【日程】${event.Start_Date} ~ ${event.End_Date}
-      【詳細】${event.Description}
-      `}
+      【詳細】${event.Description}`);
+      
 
 }
 
@@ -70,7 +68,7 @@ const handleEvent = async (event) => {
     return Promise.resolve(null);
   };
 
-  return client.pushMessage(process.env.UID, makeEventMessage(APIMock))
+  return client.pushMessage(process.env.UID, {type:"text",text:makeEventMessage(APIMock)})
 
 };
 
