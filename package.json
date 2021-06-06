@@ -7,9 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node src/index.ts",
     "dev:watch": "ts-node-dev --respawn src/index.ts",
-    "build": "npm-run-all clean tsc",
-    "tsc": "tsc",
     "clean": "rimraf dist/*",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
+  
+
     "start": "node ."
   },
   "keywords": [],
