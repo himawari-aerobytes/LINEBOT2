@@ -77,8 +77,9 @@ const handleEvent = async (event) => {
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   };
+  const uid = process.env.UID;
 
-  return client.pushMessage(process.env.UID, { type: "text", text: "aaab" });
+  return client.pushMessage(uid, { type: "text", text: "aaab" });
 
 };
 
