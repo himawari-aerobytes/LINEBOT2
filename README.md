@@ -2,9 +2,9 @@
 昔書いたLINEBOTをNodeで書き直しています。
 
 # 環境設定
-`touch .env`
-
-.env内
+- `git clone https://github.com/n-syuichi/LINEBOT2.git`でプロジェクトをクローンしてください。
+- `touch .env`で.envを作成します
+- .env内を以下のようにします
 ```
 CHANNEL_SEACRET= ...
 CHANNEL_ACCESS_TOKEN= ...
@@ -13,6 +13,9 @@ LINE_UID= ...
 LINE MessageAPIのチャンネルシークレット、アクセストークンを確認してください。
 LINE_UIDは、送信先のid(userid, groupid)を入力してください。
 (自分のUIDを設定する場合は、Message APIの管理画面に表示されています)
+
+Message APIの設定方法については以下を参照してください。
+https://first-contact.jp/blog/article/linebot/
 
 # パッケージ管理
 Yarnでパッケージ管理をしています。
@@ -23,7 +26,7 @@ Yarnでパッケージ管理をしています。
 
 # JavaScript
 TypeScriptを使っています。
-ts-nodeを使って、distファイルにjavascriptへコンパイルしたものを出力しています。
+ts-nodeを使って、distファイルにjavascriptへトランスパイルしたものを出力しています。
 
 # build
 `yarn dev`で実行できます
