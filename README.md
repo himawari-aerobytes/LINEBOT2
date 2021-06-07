@@ -35,6 +35,9 @@ ts-nodeを使って、distファイルにjavascriptへコンパイルしたも�
 process.env.PORTはHerokuの環境変数です。指定しない限りポートは3000になります
 そのまま、Herokuにアップロードすることもできます。
 
+Herokuに関しては、以下を参照してください。
+https://qiita.com/DogK0625/items/12178fdc3dd607088ff0
+
 
 
 
