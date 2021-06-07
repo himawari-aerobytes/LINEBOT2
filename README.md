@@ -21,18 +21,19 @@ https://first-contact.jp/blog/article/linebot/
 Yarnでパッケージ管理をしています。
 `yarn install`で指定パッケージをインストールしてください。
 (package.jsonで指定されているので、yarn install時に自動でインストールされます)
-
-また、LINE Developer SDKを使用しています。
+* LINE SDKを使用しています。
 
 # JavaScript
 TypeScriptを使っています。
 ts-nodeを使って、distファイルにjavascriptへトランスパイルしたものを出力しています。
 
-# build
-`yarn dev`で実行できます
-`yarn dev:watch`で更新すると自動でトランスパイルされます。
-`yarn build`でビルドできます。
-`yarn start`で実行できます
+# 各コマンド
+- `yarn dev` : 実行
+- `yarn dev:watch`: 変更をしたら自動でトランスパイルされます。
+- `yarn build`:distファイルにトランスパイルされます。
+- `yarn start` : buildを実行します
+package.jsonにて各コマンドを定義しています。
+
 
 # Heroku
 process.env.PORTはHerokuの環境変数です。指定しない限りポートは3000になります
