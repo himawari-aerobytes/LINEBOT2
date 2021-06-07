@@ -7,6 +7,8 @@ import {
 } from "@line/bot-sdk";
 require('dotenv').config();
 
+import API_MOCK from "./APIMock/Server.json";
+
 type API_RECEIVE = {
   events: {
     Name: string;
@@ -63,7 +65,7 @@ const handleEvent = async (event) => {
     return Promise.resolve(null);
   };
 
-  return client.pushMessage( process.env.LINE_UID, { type: "text", text: makeEventMessage(APIMock) });
+  return client.pushMessage( process.env.LINE_UID, { type: "text", text: makeEventMessage(API_MOCK) });
 
 };
 
