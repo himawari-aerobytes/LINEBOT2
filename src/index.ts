@@ -6,18 +6,10 @@ import {
 
 } from "@line/bot-sdk";
 require('dotenv').config();
-
 import API_MOCK from "./APIMock/Server.json";
+import { API_RECEIVE } from "./@types/API_RECEIVE";
 
-type API_RECEIVE = {
-  events: {
-    Name: string;
-    Location: string|null;
-    Start_Date: string;
-    End_Date: string|null;
-    Description: string|null;
-  }
-}
+
 
 const config = {
   //.env環境で入力
@@ -29,16 +21,6 @@ const config = {
 const app = express();
 const client = new Client(config);
 
-const APIMock = {
-  "events": {
-    "Name": "飲み会１",
-    "Location": "山田大学",
-    "Start_Date": "2021/3/2",
-    "End_Date": "2021/3/2",
-    "Description": "みんなで飲みます"
-  }
-
-};
 
 const makeEventMessage = (req: API_RECEIVE) => {
   const event = req.events
